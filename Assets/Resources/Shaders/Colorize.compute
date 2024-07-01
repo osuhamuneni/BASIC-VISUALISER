@@ -1,0 +1,29 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+RWTexture2D<float3> Result;
+RWStructuredBuffer<float> pixels;
+
+float threshold, XOffset, YOffset, width, boost;
+
+float3 RGBMultipliers;
+
+[numthreads(16,16,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    // TODO: insert actual code here!
+    //Get New RGB values
+    float r = (pixels[(id.y*width) + id.x - 1]) * RGBMultipliers.r * boost;
+    float g = (pixels[(id.y*width) + id.x - 1]) * RGBMultipliers.g * boost;
+    float b = (pixels[(id.y*width) + id.x - 1]) * RGBMultipliers.b * boost;
+
+    float3 resultPixel = float3(Result[id.xy].r + r,Result[id.xy].g + g,Result[id.xy].b + b);
+    
+    float maxColorValue = max(max(r,g),b);
+    if(maxColorValue <= threshold){resultPixel= float3(0,0,0);};   
+    float2 offset = float2(id.x + XOffset, id.y + YOffset);
+    //Boost Values
+    Result[offset] = Result[offset] + resultPixel;
+}

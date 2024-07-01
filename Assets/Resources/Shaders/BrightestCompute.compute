@@ -1,0 +1,61 @@
+#pragma kernel FindBrightest
+#pragma kernel ResetBuffer
+
+struct BrightestPoint
+{
+    float2 position;
+    float brightness;
+    int taken;
+};
+
+RWTexture2D<float4> Result;
+RWStructuredBuffer<BrightestPoint> _BrightestPoint;
+RWStructuredBuffer<float2> takenBuffer;
+
+[numthreads(8, 8, 1)]
+void FindBrightest(uint3 id : SV_DispatchThreadID)
+{
+    float currentPixel = length(Result[id.xy]);
+
+    for (int j = 0; j < 20; j++)
+    {
+        if (all(takenBuffer[j] == id.xy) || _BrightestPoint[j].taken == 1)
+            return;
+
+        if (currentPixel > _BrightestPoint[j].brightness)
+        {
+            _BrightestPoint[j].brightness = currentPixel;
+            _BrightestPoint[j].position = id.xy;
+            _BrightestPoint[j].taken = 1;
+            takenBuffer[j] = id.xy;
+        }
+    }
+
+    //for(int j = 0; j < 20; j++)
+    //{
+    //    GroupMemoryBarrierWithGroupSync();
+    //    
+    //    if(_BrightestPoint[j].taken == 1)
+    //        return;
+    //    
+    //    if(currentPixel > _BrightestPoint[j].brightness)
+    //    {
+    //        _BrightestPoint[j].brightness = currentPixel;
+    //        _BrightestPoint[j].position = id.xy;
+    //        _BrightestPoint[j].taken = 1;
+    //    }
+    //}
+}
+
+[numthreads(1, 1, 1)]
+void ResetBuffer(uint3 id : SV_DispatchThreadID)
+{
+    for (int i = 0; i < 20; i++)
+    {
+        _BrightestPoint[i].brightness = 0;
+        _BrightestPoint[i].position = float2(0, 0);
+        _BrightestPoint[i].taken = 0;
+
+        takenBuffer[i] = float2(999, 999);
+    }
+}
