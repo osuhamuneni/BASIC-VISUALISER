@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3279088066015071308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3279088066015071306}
+  - component: {fileID: 3279088066015071307}
+  - component: {fileID: 8052321820197059854}
+  - component: {fileID: 7251075901184771733}
+  m_Layer: 0
+  m_Name: GalaxyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3279088066015071306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279088066015071308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3279088066015071307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279088066015071308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50754c44627498b459332c709b959b3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoAddGalaxyPerPerformancesValue: 0
+  memoryThreshold: 500
+  cpuThreshold: 80
+  fpsThreshold: 50
+  fObjectArray:
+  - {fileID: 469465178164666323, guid: 65550846c7b2b9148a8541164b623a75, type: 3}
+  - {fileID: 7021553337211718037, guid: 383b250780c430149860823c89e677d5, type: 3}
+  - {fileID: 7973120266115063754, guid: 8ac1a4c95885d4d4fb369e93a6b98129, type: 3}
+  - {fileID: 6872241239465373134, guid: 1fe164a9eee944d46ae78af959b2710a, type: 3}
+  - {fileID: 6326712843441647725, guid: e174e84a986202b4a89f407d54ab930a, type: 3}
+  - {fileID: 2407405402867148290, guid: 8f4108cd7e5ded449856109e3e003e9b, type: 3}
+  - {fileID: 2407405402867148290, guid: ce064688119283f458fbc2689efe5613, type: 3}
+  - {fileID: 6206850481378637255, guid: 818d1771b51e39843aabeeb3f8ed8d9e, type: 3}
+  - {fileID: 3028680241774424418, guid: 0a35a2f613c86214ca3507ca2cadaed3, type: 3}
+  - {fileID: 2407405402867148290, guid: a21448b8188e8744baefb3b08754dd8d, type: 3}
+  - {fileID: 380928410541914647, guid: faff61fb39cf1e6429e27b1e13c2e74f, type: 3}
+  - {fileID: 1175952057408075830, guid: d4cc61c1366ed5e428b5e3d2051c2cba, type: 3}
+  - {fileID: 2554525738421881651, guid: 4605bea4702e7b240ab31ffee0482542, type: 3}
+  - {fileID: 1978018411970300252, guid: 09bfa4c5ddf2cb943952c92791f32662, type: 3}
+  - {fileID: 7975854666096807799, guid: 16b8c906c49fe044788282f7a6c5cb89, type: 3}
+  - {fileID: 941470105824842901, guid: 2ea18d589bfb6af4db3b4e6efa6236b7, type: 3}
+  - {fileID: 2229259842975806957, guid: 0ed8e1f919f23944ebfdd1e19157e90e, type: 3}
+  uiPrefab: {fileID: 6899006611490285570, guid: a2d18a123d4232540bf25297180e76d2, type: 3}
+  mesh: {fileID: 3613567641014311022, guid: 92e6845952cef1d4d8ee9e93297f81f2, type: 3}
+  material: {fileID: -6478536213147159724, guid: 92e6845952cef1d4d8ee9e93297f81f2, type: 3}
+  _cvsToggle: {fileID: 0}
+--- !u!114 &8052321820197059854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279088066015071308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc10626a483413140a753dca8a2cb0a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GalaxyIndex: 0
+  Zoom: 0
+  d3_Origin: {fileID: 0}
+  RotationSpeed: 1
+  Galaxy_Colour_Index: 0
+  ChangeAll: 0
+  showInfo: 0
+  toggleChannelFormFits: 0
+--- !u!114 &7251075901184771733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279088066015071308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70196788fe89bfd428e4ae84143dfae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exposedObject: {fileID: 8052321820197059854}
+  prefix: dc547c2f-de1a-40e2-aae2-f33a490b98a4
+  fields:
+  - exposed: 0
+    fieldName: Script
+    groupName: 
+  - exposed: 1
+    fieldName: Galaxy Index
+    groupName: 
+  - exposed: 1
+    fieldName: Zoom
+    groupName: 
+  - exposed: 0
+    fieldName: D3_Origin
+    groupName: 
+  - exposed: 1
+    fieldName: Rotation Speed
+    groupName: 
+  - exposed: 1
+    fieldName: Galaxy_Colour_Index
+    groupName: 
+  - exposed: 1
+    fieldName: Change All
+    groupName: 
+  - exposed: 1
+    fieldName: Show Info
+    groupName: 

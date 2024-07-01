@@ -1,0 +1,25 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+float Min;
+float Max;
+RWStructuredBuffer<float> pixels;
+struct maxAndMin{
+    float max;
+    float min;
+};
+RWStructuredBuffer<maxAndMin> results;
+[numthreads(1,1,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    // TODO: insert actual code here!
+    Min = min(results[0].min, pixels[id.x]);
+    Max = max( results[0].max , pixels[id.x]);
+    GroupMemoryBarrierWithGroupSync();
+    results[0].min = Min;
+    results[0].max = Max;
+
+    
+}

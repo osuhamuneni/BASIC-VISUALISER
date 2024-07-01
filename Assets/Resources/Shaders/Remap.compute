@@ -1,0 +1,19 @@
+
+
+#pragma kernel Remap
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+float min;
+float max;
+RWStructuredBuffer<float> pixels;
+
+[numthreads(64,1,1)]
+void Remap (uint3 id : SV_DispatchThreadID)
+{
+    // TODO: insert actual code here!
+    
+   float temp =  0 + (pixels[id.x] - min) * (1 - 0) / (max - min);
+
+   pixels[id.x] = temp;
+}

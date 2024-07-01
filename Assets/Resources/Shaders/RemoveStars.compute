@@ -1,0 +1,26 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+RWTexture2D<float4> Result;
+
+float Resolution;
+
+[numthreads(8,8,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    // TODO: insert actual code here!
+
+    float4 image = Result[id.xy];
+
+    // if lower than 0.3 step down to black
+    float r = image.r * step(0.4, image.r);
+    float g = image.g * step(0.4, image.g);
+    float b = image.b * step(0.4, image.b);
+
+    // remove smaller stars than 50 pixels?
+
+
+    Result[id.xy] = float4(r, g, b, 1.0);
+}
